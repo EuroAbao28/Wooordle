@@ -20,3 +20,7 @@ body {
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+svg {
+  -webkit-tap-highlight-color: transparent;
+}
