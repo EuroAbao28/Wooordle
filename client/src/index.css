@@ -17,7 +17,13 @@ body {
   user-select: none;
 }
 
+/*----- THESE ARE BUTTONS  -----*/
+
 button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+p {
   -webkit-tap-highlight-color: transparent;
 }
 
