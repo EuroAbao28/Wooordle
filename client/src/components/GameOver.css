@@ -1,0 +1,95 @@
+.gameOver-container {
+  position: absolute;
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  width: 30rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.gameOver-container.show {
+  animation: gameOverShow 0.5s ease-in-out forwards;
+}
+
+.gameOver-container.hide {
+  animation: gameOverHide 0.5s ease-in-out forwards;
+}
+
+.gameOver-container h1 {
+  text-align: center;
+  font-size: 2.6rem;
+}
+
+.gameOver-container h3 {
+  text-align: center;
+  padding: 1rem;
+  font-size: 3.2rem;
+  font-weight: 900;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+
+  -webkit-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+}
+
+.gameOver-container p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+
+.gameOver-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gameOver-buttons svg {
+  flex: 1;
+  margin-top: 2rem;
+  padding: 1rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  color: white;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.gameOver-buttons svg:nth-child(1) {
+  background-color: rgb(147, 162, 255);
+}
+
+.gameOver-buttons svg:nth-child(2) {
+  background-color: rgb(255, 146, 146);
+}
+
+.gameOver-buttons svg:nth-child(3) {
+  background-color: rgb(121, 236, 150);
+}
+
+@keyframes gameOverShow {
+  from {
+    transform: translateY(100rem);
+    z-index: -10;
+  }
+  to {
+    transform: translateY(0rem);
+    z-index: 10;
+  }
+}
+
+@keyframes gameOverHide {
+  from {
+    transform: translateY(0rem);
+    z-index: 10;
+  }
+  to {
+    transform: translateY(100rem);
+    z-index: -10;
+  }
+}

@@ -1,0 +1,128 @@
+.backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+
+  backdrop-filter: blur(3px) saturate(100%);
+  -webkit-backdrop-filter: blur(3px) saturate(100%);
+  background-color: rgba(17, 25, 40, 0.3);
+}
+
+.popup-window {
+  width: 30rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  position: absolute;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.popup-window.show {
+  animation: popUpShow 0.5s ease-in-out forwards;
+}
+
+.popup-window.hide {
+  animation: popUpHide 0.5s ease-in-out forwards;
+}
+
+.popup-window .answer {
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  position: relative;
+
+  -webkit-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+}
+
+.popup-window .answer h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.5rem;
+}
+
+.message {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.message p {
+  font-size: 1.8rem;
+}
+
+.message p span {
+  font-weight: 600;
+}
+
+.message svg {
+  font-size: 1.8rem;
+}
+
+.correct svg {
+  color: green;
+}
+
+.wrong svg {
+  color: red;
+}
+
+.popup-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.popup-buttons svg {
+  flex: 1;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+  transition: all 0.15s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.popup-buttons svg:active {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.popup-buttons svg:nth-child(1) {
+  background-color: rgb(147, 162, 255);
+}
+
+.popup-buttons svg:nth-child(2) {
+  background-color: rgb(121, 236, 150);
+}
+
+@keyframes popUpShow {
+  from {
+    transform: translateY(-100rem);
+    z-index: -10;
+  }
+  to {
+    transform: translateY(0rem);
+    z-index: 10;
+  }
+}
+
+@keyframes popUpHide {
+  from {
+    transform: translateY(0rem);
+    z-index: 10;
+  }
+  to {
+    transform: translateY(-100rem);
+    z-index: -10;
+  }
+}
