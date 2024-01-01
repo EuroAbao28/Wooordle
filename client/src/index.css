@@ -16,3 +16,8 @@ body {
   background-color: #e5e5f7;
   user-select: none;
 }
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
