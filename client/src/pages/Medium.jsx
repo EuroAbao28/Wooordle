@@ -9,22 +9,25 @@ import axios from "axios";
 import ResultPopUp from "../components/ResultPopUp";
 import Backdrop from "../components/Backdrop";
 import GameOver from "../components/GameOver";
+import SharePoints from "../components/SharePoints";
 
 function Medium() {
   const [origWord, setOrigWord] = useState("");
   const [shuffledWord, setShuffledWord] = useState("");
 
   const [points, setPoints] = useState(0);
-  const [lives, setLives] = useState(3);
+  const [lives, setLives] = useState(1);
 
   const [answer, setAnswer] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState([]);
 
-  const [resultDeployer, setResultDeployer] = useState(false);
   const [showResult, setShowResult] = useState(false);
-
-  const [gameOverDeployer, setGameOverDeployer] = useState(false);
   const [showGameOver, setShowGameOver] = useState(false);
+  const [showSharePoints, setShowSharePoints] = useState(false);
+
+  const [resultDeployer, setResultDeployer] = useState(false);
+  const [gameOverDeployer, setGameOverDeployer] = useState(false);
+  const [sharePointsDeployer, setSharePointsDeployer] = useState(false);
 
   const handleAddNewLetter = (letter, index) => {
     if (!selectedIndex.includes(index)) {
@@ -105,11 +108,21 @@ function Medium() {
 
   const handleRestart = () => {
     setShowGameOver(false);
-    setShowGameOver(false);
-    setLives(3);
+    setLives(1);
     setPoints(0);
 
     generateWord();
+  };
+
+  const sharePoints = () => {
+    setShowGameOver(false);
+    setSharePointsDeployer(true);
+    setShowSharePoints(true);
+  };
+
+  const handleBack = () => {
+    setShowGameOver(true);
+    setShowSharePoints(false);
   };
 
   useEffect(() => {
@@ -118,7 +131,7 @@ function Medium() {
 
   return (
     <div className="parent-container">
-      {(showResult || showGameOver) && <Backdrop />}
+      {(showResult || showGameOver || showSharePoints) && <Backdrop />}
       {resultDeployer && (
         <ResultPopUp
           state={showResult}
@@ -128,7 +141,15 @@ function Medium() {
         />
       )}
       {gameOverDeployer && (
-        <GameOver state={showGameOver} restart={handleRestart} score={points} />
+        <GameOver
+          state={showGameOver}
+          restart={handleRestart}
+          score={points}
+          sharePoints={sharePoints}
+        />
+      )}
+      {sharePointsDeployer && (
+        <SharePoints state={showSharePoints} back={handleBack} />
       )}
       <div className="child-container">
         <div className="header">

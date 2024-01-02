@@ -1,0 +1,108 @@
+.home-container {
+  height: 100svh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-wrapper {
+  background-color: white;
+  width: 40rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 0 2rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.home-wrapper header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.home-wrapper h1 {
+  font-size: 2.6rem;
+  text-shadow: 0.02rem 0.02rem 0 #cdcdd8, -0.05rem 0.2rem 0 #cdcdd8,
+    -0.05rem 0.2rem 0 #cdcdd8;
+}
+
+.header-buttons {
+  display: flex;
+}
+
+.header-buttons svg {
+  font-size: 2.1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.header-buttons svg:hover {
+  background-color: #cdcdd843;
+}
+
+.home-wrapper h3 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.levels-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.levels-container button {
+  flex: 1;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  color: white;
+  font-weight: 600;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.levels-container button:nth-child(1) {
+  background-color: var(--green);
+}
+
+.levels-container button:nth-child(2) {
+  background-color: var(--blue);
+}
+
+.levels-container button:nth-child(3) {
+  background-color: var(--red);
+}
+
+.levels-container button:active {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.developer {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.developer h5 {
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.developer p {
+  margin-top: -0.2rem;
+  font-size: 0.8rem;
+}

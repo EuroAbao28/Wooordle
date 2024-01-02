@@ -1,0 +1,256 @@
+.share-container {
+  width: 30rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  position: absolute;
+  z-index: 99;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.share-container.show {
+  animation: sharePointsShow 0.5s ease-in-out forwards;
+}
+
+.share-container.hide {
+  animation: sharePointsHide 0.5s ease-in-out forwards;
+}
+
+.share-container h1 {
+  text-align: center;
+  font-size: 2.6rem;
+}
+
+.share-container .points-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.share-container .points {
+  outline: 4px solid var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  color: var(--yellow);
+}
+
+.share-container .points p {
+  font-size: 3.2rem;
+  font-weight: 900;
+  text-shadow: -1px 1px 1px rgb(169, 169, 8);
+}
+
+.share-container .points svg {
+  font-size: 3.4rem;
+  margin-top: -0.25rem;
+}
+
+.share-container h3 {
+  font-size: 3.2rem;
+  background-color: var(--yellow);
+  color: white;
+  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+  padding: 1rem;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.username {
+  display: flex;
+  justify-content: center;
+}
+
+.share-container input {
+  border: none;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+
+  -webkit-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
+}
+
+.share-container input:focus {
+  border: none;
+  outline: none;
+}
+
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.share-buttons button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.share-buttons button svg {
+  font-size: 1.8rem;
+}
+
+.share-buttons button:nth-child(1) {
+  background-color: var(--grey);
+  color: rgb(101, 101, 101);
+}
+
+.share-buttons button:nth-child(2) {
+  background-color: var(--green);
+  color: white;
+}
+
+.share-buttons button:active {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+@keyframes sharePointsShow {
+  from {
+    transform: translateY(-100rem);
+    z-index: -10;
+  }
+  to {
+    transform: translateY(0rem);
+    z-index: 10;
+  }
+}
+
+@keyframes sharePointsHide {
+  from {
+    transform: translateY(0rem);
+    z-index: 10;
+  }
+  to {
+    transform: translateY(-100rem);
+    z-index: -10;
+  }
+}
+
+/*----- Loading -----*/
+
+.spinner {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  border: 0.25rem solid #ffffff;
+  animation: spinner-bulqg1 0.96s infinite linear alternate,
+    spinner-oaa3wk 1.92s infinite linear;
+}
+
+@keyframes spinner-bulqg1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+
+  12.5% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%,
+      100% 0%
+    );
+  }
+
+  25% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      100% 100%,
+      100% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      50% 50%,
+      0 0,
+      50% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+
+  62.5% {
+    clip-path: polygon(
+      50% 50%,
+      100% 0,
+      100% 0%,
+      100% 0%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+
+  75% {
+    clip-path: polygon(
+      50% 50%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+
+  100% {
+    clip-path: polygon(
+      50% 50%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      50% 100%,
+      0% 100%
+    );
+  }
+}
+
+@keyframes spinner-oaa3wk {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}

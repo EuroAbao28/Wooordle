@@ -5,10 +5,12 @@
   --blue: rgb(147, 162, 255);
   --red: rgb(255, 146, 146);
   --yellow: rgb(255, 215, 72);
+  --grey: rgb(229, 229, 247);
 
   --drk-green: hsl(135, 57%, 64%);
   --drk-blue: rgb(133, 145, 226);
   --drk-red: rgb(219, 124, 124);
+  --drk-grey: rgb(205, 205, 216);
 }
 
 * {

@@ -195,7 +195,7 @@
 
 .shared-button {
   flex: 1;
-  background-color: #e5e5f7;
+  background-color: var(--grey);
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;
@@ -215,7 +215,7 @@
 }
 
 .shared-button svg:active {
-  background-color: #cdcdd8;
+  background-color: var(--drk-grey);
 }
 
 .shared-button .vertical-line {

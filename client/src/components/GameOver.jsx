@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { RiHome2Line } from "react-icons/ri";
 import { VscDebugRestart } from "react-icons/vsc";
 import { TbShare } from "react-icons/tb";
-import { TiStarFullOutline } from "react-icons/ti";
 
-function GameOver({ state, restart, score }) {
+function GameOver({ state, restart, score, sharePoints }) {
   const nav = useNavigate();
   return (
     <div className={`gameOver-container ${state ? "show" : "hide"}`}>
@@ -16,7 +15,7 @@ function GameOver({ state, restart, score }) {
       <div className="gameOver-buttons">
         <RiHome2Line onClick={() => nav("/")} />
         <VscDebugRestart onClick={restart} />
-        <TbShare />
+        <TbShare onClick={sharePoints} />
       </div>
     </div>
   );
