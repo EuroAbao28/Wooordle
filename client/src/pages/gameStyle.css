@@ -49,42 +49,48 @@
 
 .header h1 {
   font-size: 2.6rem;
+  text-shadow: 0.02rem 0.02rem 0 #cdcdd8, -0.05rem 0.2rem 0 #cdcdd8,
+    -0.05rem 0.2rem 0 #cdcdd8;
 }
 
 .parentInfo-container {
-  flex: 1;
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
 }
 
 .info-container {
+  flex: 1;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+
   -webkit-box-shadow: inset 0 0 5.5px -3px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset 0 0 5.5px -3px rgba(0, 0, 0, 0.6);
   box-shadow: inset 0 0 5.5px -3px rgba(0, 0, 0, 0.6);
-
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.info-container p {
-  font-size: 1.4rem;
 }
 
 .info-container svg {
-  color: rgb(255, 119, 119);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
-.lives {
-  width: 55%;
+.info-container p {
+  font-size: 1.6rem;
 }
 
-.lives p {
-  margin-right: 0.5rem;
+.info-container:nth-child(1) svg {
+  color: var(--yellow);
+}
+
+.info-container:nth-child(2) svg {
+  color: var(--red);
+}
+
+.info-container:nth-child(2) p::before {
+  content: "x";
 }
 
 /*---------- SHUFFLED ----------*/
@@ -113,6 +119,10 @@
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.shuffled-container p:active {
+  background-color: #e5e5f7;
 }
 
 .selected-letter {
@@ -204,8 +214,8 @@
   transition: all 0.15s ease-in-out;
 }
 
-.shared-button svg:hover {
-  transform: translateY(-0.15rem);
+.shared-button svg:active {
+  background-color: #cdcdd8;
 }
 
 .shared-button .vertical-line {
@@ -224,12 +234,13 @@
   font-weight: 600;
   font-size: 1.4rem;
   transition: all 0.15s ease-in-out;
-  background-color: rgb(121, 236, 150);
+  background-color: var(--green);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .buttons-container button:active {
+  background-color: var(--drk-green);
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }

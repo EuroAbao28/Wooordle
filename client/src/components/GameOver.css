@@ -22,12 +22,15 @@
 }
 
 .gameOver-container h3 {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 1rem;
   font-size: 3.2rem;
   font-weight: 900;
   border-radius: 0.5rem;
   margin-top: 2rem;
+  color: var(--yellow);
+  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
 
   -webkit-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: inset 1px 1px 11.5px -6px rgba(0, 0, 0, 0.6);
@@ -61,15 +64,32 @@
 }
 
 .gameOver-buttons svg:nth-child(1) {
-  background-color: rgb(147, 162, 255);
+  background-color: var(--blue);
 }
 
 .gameOver-buttons svg:nth-child(2) {
-  background-color: rgb(255, 146, 146);
+  background-color: var(--red);
 }
 
 .gameOver-buttons svg:nth-child(3) {
-  background-color: rgb(121, 236, 150);
+  background-color: var(--green);
+}
+
+.gameOver-buttons svg:active {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.gameOver-buttons svg:nth-child(1):active {
+  background-color: var(--drk-blue);
+}
+
+.gameOver-buttons svg:nth-child(2):active {
+  background-color: var(--drk-red);
+}
+
+.gameOver-buttons svg:nth-child(3):active {
+  background-color: var(--drk-green);
 }
 
 @keyframes gameOverShow {

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { RiHome2Line } from "react-icons/ri";
 import { VscDebugRestart } from "react-icons/vsc";
 import { TbShare } from "react-icons/tb";
+import { TiStarFullOutline } from "react-icons/ti";
 
 function GameOver({ state, restart, score }) {
   const nav = useNavigate();

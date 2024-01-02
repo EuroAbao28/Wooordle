@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./gameStyle.css";
+import { TiStarFullOutline } from "react-icons/ti";
 import { IoMdHeart } from "react-icons/io";
 import { PiShuffleBold } from "react-icons/pi";
 import { LuPaintbrush } from "react-icons/lu";
@@ -134,14 +135,12 @@ function Medium() {
           <h1>Wooordle</h1>
           <div className="parentInfo-container">
             <div className="info-container">
-              <p>{`Pts: ${points}`}</p>
+              <TiStarFullOutline />
+              <p>{points}</p>
             </div>
-            <div className="info-container lives">
-              <p>Lvs:</p>
-              {lives > 0 &&
-                [...Array(lives)].map((i, index) => {
-                  return <IoMdHeart key={index} />;
-                })}
+            <div className="info-container">
+              <IoMdHeart />
+              <p>{lives}</p>
             </div>
           </div>
         </div>

@@ -1,9 +1,9 @@
 import React from "react";
-import Backdrop from "./Backdrop";
 import { AiOutlineHome } from "react-icons/ai";
 import { TbPlayerTrackNext } from "react-icons/tb";
-import { CgCloseR, CgCheckR } from "react-icons/cg";
+import { CgCloseR } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
+import { TiStarFullOutline } from "react-icons/ti";
 
 function ResultPopUp({ state, origWord, answer, nextLevel }) {
   const nav = useNavigate();
@@ -17,8 +17,11 @@ function ResultPopUp({ state, origWord, answer, nextLevel }) {
 
         {origWord === answer.join("") ? (
           <div className="message correct">
-            <p>You are correct</p>
-            <CgCheckR />
+            <p>You are correct!</p>
+            <div className="plus-points">
+              <p>+10</p>
+              <TiStarFullOutline />
+            </div>
           </div>
         ) : (
           <div className="message wrong">
