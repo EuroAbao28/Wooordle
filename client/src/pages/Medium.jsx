@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./gameStyle.css";
+import { useNavigate } from "react-router-dom";
 import { TiStarFullOutline } from "react-icons/ti";
 import { IoMdHeart } from "react-icons/io";
 import { PiShuffleBold } from "react-icons/pi";
@@ -12,6 +13,8 @@ import GameOver from "../components/GameOver";
 import SharePoints from "../components/SharePoints";
 
 function Medium() {
+  const nav = useNavigate();
+
   const [origWord, setOrigWord] = useState("");
   const [shuffledWord, setShuffledWord] = useState("");
 
@@ -149,11 +152,15 @@ function Medium() {
         />
       )}
       {sharePointsDeployer && (
-        <SharePoints state={showSharePoints} back={handleBack} />
+        <SharePoints
+          state={showSharePoints}
+          back={handleBack}
+          points={points}
+        />
       )}
       <div className="child-container">
         <div className="header">
-          <h1>Wooordle</h1>
+          <h1 onClick={() => nav("/")}>Wooordle</h1>
           <div className="parentInfo-container">
             <div className="info-container">
               <TiStarFullOutline />

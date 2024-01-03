@@ -17,10 +17,15 @@ function Home() {
           </div>
         </header>
         <h3>Game Modes</h3>
-        <div className="levels-container">
-          <button onClick={() => nav("easy")}>Easy</button>
-          <button onClick={() => nav("medium")}>Medium</button>
-          <button onClick={() => nav("hard")}>Hard</button>
+        <div className="levels-outline">
+          <div className="levels-container">
+            <button onClick={() => nav("easy")}>Easy</button>
+            <button onClick={() => nav("medium")}>Medium</button>
+            <button onClick={() => nav("hard")}>Hard</button>
+            <button onClick={() => nav("easy")}>Blind</button>
+            <button onClick={() => nav("medium")}>Randomize</button>
+            <button onClick={() => nav("hard")}>Demon</button>
+          </div>
         </div>
         <div className="developer">
           <h5>Euro Abao</h5>

@@ -53,14 +53,20 @@
   font-weight: 400;
 }
 
-.levels-container {
-  display: flex;
-  gap: 2rem;
+.levels-outline {
+  outline: 1px solid rgb(203, 203, 203);
+  padding: 2rem;
+  border-radius: 1rem;
   margin-top: 1rem;
 }
 
+.levels-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
 .levels-container button {
-  flex: 1;
   border: none;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -83,6 +89,18 @@
 
 .levels-container button:nth-child(3) {
   background-color: var(--red);
+}
+
+.levels-container button:nth-child(4) {
+  background-color: violet;
+}
+
+.levels-container button:nth-child(5) {
+  background-color: rgb(184, 99, 184);
+}
+
+.levels-container button:nth-child(6) {
+  background-color: rgb(114, 61, 114);
 }
 
 .levels-container button:active {

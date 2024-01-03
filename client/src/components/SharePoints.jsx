@@ -4,7 +4,7 @@ import { IoArrowBack } from "react-icons/io5";
 import { TiStarFullOutline } from "react-icons/ti";
 import { TbShare } from "react-icons/tb";
 
-function SharePoints({ state, back }) {
+function SharePoints({ state, back, points }) {
   const [loading, setLoading] = useState(false);
 
   const handleShare = () => {
@@ -21,7 +21,7 @@ function SharePoints({ state, back }) {
       <h1>Share Score</h1>
       <div className="points-wrapper">
         <div className="points">
-          <p>30</p>
+          <p>{points}</p>
           <TiStarFullOutline />
         </div>
       </div>
