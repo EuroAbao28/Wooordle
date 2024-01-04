@@ -23,11 +23,11 @@
 }
 
 .popup-window.show {
-  animation: popUpShow 0.5s ease-in-out forwards;
+  animation: popUpShow 0.5s ease forwards;
 }
 
 .popup-window.hide {
-  animation: popUpHide 0.5s ease-in-out forwards;
+  animation: popUpHide 0.5s ease forwards;
 }
 
 .popup-window .answer {
@@ -106,7 +106,7 @@
   border-radius: 0.5rem;
   cursor: pointer;
   color: white;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./ResultPopUp.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { TbPlayerTrackNext } from "react-icons/tb";
 import { CgCloseR } from "react-icons/cg";

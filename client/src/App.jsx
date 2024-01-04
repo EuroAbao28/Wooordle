@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Medium from "./pages/Medium";
 import Easy from "./pages/Easy";
 import Hard from "./pages/Hard";
+import LeaderBoard from "./components/LeaderBoard/LeaderBoard";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/easy" element={<Easy />} />
           <Route path="/medium" element={<Medium />} />
           <Route path="/hard" element={<Hard />} />
+          <Route path="/leaderboard" element={<LeaderBoard />} />
           <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
       </Router>

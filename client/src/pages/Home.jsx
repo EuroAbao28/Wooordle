@@ -6,13 +6,14 @@ import { GrSun } from "react-icons/gr";
 
 function Home() {
   const nav = useNavigate();
+
   return (
     <div className="home-container">
       <div className="home-wrapper">
         <header>
           <h1>Wooordle</h1>
           <div className="header-buttons">
-            <MdOutlineLeaderboard />
+            <MdOutlineLeaderboard onClick={() => nav("/leaderboard")} />
             <GrSun />
           </div>
         </header>

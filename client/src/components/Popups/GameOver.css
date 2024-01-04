@@ -9,11 +9,11 @@
 }
 
 .gameOver-container.show {
-  animation: gameOverShow 0.5s ease-in-out forwards;
+  animation: gameOverShow 0.5s ease forwards;
 }
 
 .gameOver-container.hide {
-  animation: gameOverHide 0.5s ease-in-out forwards;
+  animation: gameOverHide 0.5s ease forwards;
 }
 
 .gameOver-container h1 {
@@ -53,7 +53,7 @@
   flex: 1;
   margin-top: 2rem;
   padding: 1rem;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease;
   cursor: pointer;
   border-radius: 0.5rem;
   font-size: 1.8rem;

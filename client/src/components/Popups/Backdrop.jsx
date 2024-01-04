@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopUp.css";
+import "./ResultPopUp.css";
 
 function Backdrop() {
   return <div className="backdrop"></div>;

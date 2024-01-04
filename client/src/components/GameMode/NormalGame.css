@@ -17,7 +17,7 @@
   width: 45rem;
   padding: 2rem;
   margin: 0 2rem;
-  animation: windowAnimation 1s ease;
+  animation: windowAnimation 2s ease;
 
   background-color: white;
   border-radius: 1rem;
@@ -27,7 +27,7 @@
 
 @keyframes windowAnimation {
   0% {
-    transform: translateY(-20rem);
+    transform: translateY(-100rem);
     opacity: 0;
   }
   100% {
@@ -97,10 +97,12 @@
 /*---------- SHUFFLED ----------*/
 
 .shuffled-container {
+  /* display: grid;
+  grid-template-columns: repeat(4, 6rem); */
   display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   text-transform: uppercase;
   animation: shakeAnimation 4s ease infinite;
 }
@@ -108,14 +110,16 @@
 .shuffled-container p {
   font-weight: 700;
   font-size: 2.1rem;
+  width: 6rem;
+  aspect-ratio: 1;
   display: grid;
   place-content: center;
-  aspect-ratio: 1;
-  width: 100%;
   border-radius: 0.75rem;
   color: black;
   cursor: pointer;
   transition: all 0.2s ease;
+  transform: scale(0);
+  animation: letterPopping 1s ease forwards;
 
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -145,6 +149,15 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes letterPopping {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
   }
 }
 

@@ -71,7 +71,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease;
   color: white;
   font-weight: 600;
 

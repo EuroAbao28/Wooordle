@@ -11,11 +11,11 @@
 }
 
 .share-container.show {
-  animation: sharePointsShow 0.5s ease-in-out forwards;
+  animation: sharePointsShow 0.5s ease forwards;
 }
 
 .share-container.hide {
-  animation: sharePointsHide 0.5s ease-in-out forwards;
+  animation: sharePointsHide 0.5s ease forwards;
 }
 
 .share-container h1 {
