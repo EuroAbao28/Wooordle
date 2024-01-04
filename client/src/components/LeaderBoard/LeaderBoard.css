@@ -18,8 +18,42 @@
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.leaderboard-container h1 {
+.leaderboard-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e5f7;
+}
+
+.leaderboard-header svg {
+  font-size: 2.1rem;
+  margin-right: 1rem;
+}
+
+.leaderboard-header h1 {
   font-size: 2.6rem;
+}
+
+.mode {
+  display: flex;
+  width: fit-content;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  outline: 1px solid #e5e5f7;
+  border-radius: 0.2rem;
+}
+
+.mode label {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.mode select {
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 1.4rem;
 }
 
 .leaderboard-wrapper table {
@@ -33,34 +67,68 @@
 }
 
 .leaderboard-wrapper table th {
-  width: 33.333%;
   padding: 0.5rem 2rem;
   font-size: 1.4rem;
   font-weight: 700;
+  background-color: var(--green);
+}
+
+.leaderboard-wrapper table th:nth-child(2) {
+  width: 100%;
 }
 
 .leaderboard-wrapper table td {
-  padding: 0.5rem 2rem;
   font-size: 1.4rem;
   text-align: center;
+  padding: 0.5rem 0;
 }
 
 .leaderboard-wrapper .rank1 {
   color: gold;
+  font-size: 2.1rem;
 }
 
 .leaderboard-wrapper .rank2 {
   color: silver;
+  font-size: 2.1rem;
 }
 
 .leaderboard-wrapper .rank3 {
   color: rgb(195, 117, 57);
+  font-size: 2.1rem;
 }
 
 .leaderboard-wrapper table td .star {
   color: var(--yellow);
   font-size: 1.6rem;
   margin-bottom: -0.3rem;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-buttons p {
+  font-size: 1.4rem;
+  color: rgb(101, 101, 101);
+}
+
+.pagination-buttons svg {
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: rgb(101, 101, 101);
+  cursor: pointer;
+}
+
+.pagination-buttons svg:hover {
+  background-color: rgba(219, 219, 219, 0.142);
 }
 
 @keyframes leaderBoardAnimation {
