@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./LeaderBoard.css";
+import axios from "axios";
 import { TiStarFullOutline } from "react-icons/ti";
 import { FaCrown } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { leaderboardAPI } from "../../APIs/LeaderBoardAPI";
 
 function LeaderBoard() {
   const nav = useNavigate();
+
+  const [gameMode, setGameMode] = useState("easy");
+  const [leaderBoardData, setLeaderBoardData] = useState([]);
+
+  const getLeaderBoard = async () => {
+    try {
+      const leaderboard = await axios.get(`${leaderboardAPI}?mode=${gameMode}`);
+      setLeaderBoardData(leaderboard.data);
+      console.log(leaderboard.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleSelectGameMode = (event) => {
+    setGameMode(event.target.value);
+  };
+
+  useEffect(() => {
+    getLeaderBoard();
+  }, [gameMode]);
+
   return (
     <div className="leaderboard-container">
       <div className="leaderboard-wrapper">
@@ -16,13 +40,16 @@ function LeaderBoard() {
         </div>
         <div className="mode">
           <label htmlFor="gameMode">Mode</label>
-          <select name="gameMode">
-            <option value="">Easy</option>
-            <option value="">Medium</option>
-            <option value="">Hard</option>
-            <option value="">Blind</option>
-            <option value="">Krazzy</option>
-            <option value="">Demon</option>
+          <select
+            name="gameMode"
+            value={gameMode}
+            onChange={handleSelectGameMode}>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="blind">Blind</option>
+            <option value="random">Random</option>
+            <option value="timed">Timed</option>
           </select>
         </div>
         <table>
@@ -34,83 +61,16 @@ function LeaderBoard() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <FaCrown className="rank1" />
-              </td>
-              <td>Orue</td>
-              <td>
-                1520 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <FaCrown className="rank2" />
-              </td>
-              <td>Orue tanga</td>
-              <td>
-                1210 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <FaCrown className="rank3" />
-              </td>
-              <td>JOnathan ul </td>
-              <td>
-                900 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>dwdwd</td>
-              <td>
-                760 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>user123</td>
-              <td>
-                490 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>GGAKO</td>
-              <td>
-                120 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>greendLOG</td>
-              <td>
-                120 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>JR.</td>
-              <td>
-                120 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>platoMalamig</td>
-              <td>
-                120 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>grabeka098</td>
-              <td>
-                120 <TiStarFullOutline className="star" />
-              </td>
-            </tr>
+            {leaderBoardData &&
+              leaderBoardData.map((data, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{data.username}</td>
+                  <td>
+                    {data.score} <TiStarFullOutline className="star" />
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
         <div className="pagination-buttons">
