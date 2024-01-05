@@ -4,6 +4,8 @@ const getLeaderBoard = async (req, res) => {
   try {
     const { mode } = req.query;
 
+    if (!mode) return res.status(400).json({ message: "Empty req.query" });
+
     const leaderBoard = await leaderBoardModel.find({ mode });
 
     res.status(200).json(leaderBoard);
