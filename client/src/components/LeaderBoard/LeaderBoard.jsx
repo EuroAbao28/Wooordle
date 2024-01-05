@@ -3,12 +3,15 @@ import "./LeaderBoard.css";
 import { TiStarFullOutline } from "react-icons/ti";
 import { FaCrown } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function LeaderBoard() {
+  const nav = useNavigate();
   return (
     <div className="leaderboard-container">
       <div className="leaderboard-wrapper">
         <div className="leaderboard-header">
+          <IoIosArrowBack onClick={() => nav("/")} />
           <h1>Leaderboard</h1>
         </div>
         <div className="mode">

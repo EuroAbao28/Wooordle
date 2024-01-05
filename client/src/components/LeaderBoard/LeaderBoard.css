@@ -20,15 +20,25 @@
 
 .leaderboard-header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e5e5f7;
+  position: relative;
 }
 
 .leaderboard-header svg {
   font-size: 2.1rem;
-  margin-right: 1rem;
+  position: absolute;
+  left: 1rem;
+  color: rgb(101, 101, 101);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.leaderboard-header svg:hover {
+  background-color: var(--grey);
 }
 
 .leaderboard-header h1 {
@@ -128,7 +138,7 @@
 }
 
 .pagination-buttons svg:hover {
-  background-color: rgba(219, 219, 219, 0.142);
+  background-color: var(--grey);
 }
 
 @keyframes leaderBoardAnimation {
