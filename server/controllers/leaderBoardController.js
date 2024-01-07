@@ -2,13 +2,22 @@ const leaderBoardModel = require("../models/leaderBoardModel");
 
 const getLeaderBoard = async (req, res) => {
   try {
-    const { mode } = req.query;
+    const { mode, listLimit, currentPage } = req.query;
 
-    if (!mode) return res.status(400).json({ message: "Empty req.query" });
+    if (!mode)
+      return res.status(400).json({
+        message: "mode, listLimit, currentPage req.query is required",
+      });
 
-    const leaderBoard = await leaderBoardModel.find({ mode });
+    const leaderBoard = await leaderBoardModel
+      .find({ mode })
+      .skip((currentPage - 1) * listLimit)
+      .limit(listLimit);
 
-    res.status(200).json(leaderBoard);
+    const totalEntry = await leaderBoardModel.countDocuments({ mode });
+    const totalPages = Math.ceil(totalEntry / listLimit);
+
+    res.status(200).json({ leaderBoard, totalPages });
   } catch (error) {
     console.error(error);
     res.json(error);

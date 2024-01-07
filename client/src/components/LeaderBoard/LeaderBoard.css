@@ -13,6 +13,8 @@
   margin: 2rem;
   padding: 2rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
 
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -20,125 +22,114 @@
 
 .leaderboard-header {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #e5e5f7;
+  align-items: center;
   position: relative;
-}
-
-.leaderboard-header svg {
-  font-size: 2.1rem;
-  position: absolute;
-  left: 1rem;
-  color: rgb(101, 101, 101);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.leaderboard-header svg:hover {
-  background-color: var(--grey);
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--grey);
 }
 
 .leaderboard-header h1 {
   font-size: 2.6rem;
 }
 
-.mode {
-  display: flex;
-  width: fit-content;
+.leaderboard-header svg {
+  font-size: 2.1rem;
   padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: absolute;
+  left: 0;
+}
+
+.leaderboard-header svg:hover {
+  background-color: var(--grey);
+}
+
+.leaderboard-wrapper .gameMode {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 2rem;
-  outline: 1px solid #e5e5f7;
-  border-radius: 0.2rem;
 }
 
-.mode label {
+.leaderboard-wrapper .gameMode label {
   font-size: 1.4rem;
-  font-weight: 500;
 }
 
-.mode select {
-  border: none;
+.leaderboard-wrapper .gameMode select {
+  font-size: 1.4rem;
+  border: 1px solid var(--grey);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.leaderboard-wrapper .gameMode select:focus {
   outline: none;
-  font-weight: 500;
-  font-size: 1.4rem;
+}
+
+.leaderboard-wrapper .table-container {
+  margin-top: 2rem;
 }
 
 .leaderboard-wrapper table {
-  width: 100%;
   border-collapse: collapse;
-  margin-top: 2rem;
 }
 
-.leaderboard-wrapper table tr {
-  border: 1px solid #e5e5f7;
-}
-
-.leaderboard-wrapper table th {
-  padding: 0.5rem 2rem;
-  font-size: 1.4rem;
-  font-weight: 700;
+.leaderboard-wrapper table thead {
   background-color: var(--green);
-}
-
-.leaderboard-wrapper table th:nth-child(2) {
-  width: 100%;
+  font-weight: 600;
 }
 
 .leaderboard-wrapper table td {
-  font-size: 1.4rem;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 3rem;
+  font-size: 1.4rem;
 }
 
-.leaderboard-wrapper .rank1 {
+.leaderboard-wrapper table td:nth-child(2) {
+  width: 100%;
+}
+
+.leaderboard-wrapper table .rank1 {
   color: gold;
-  font-size: 2.1rem;
+  font-size: 1.8rem;
 }
 
-.leaderboard-wrapper .rank2 {
-  color: silver;
-  font-size: 2.1rem;
+.leaderboard-wrapper table .rank2 {
+  color: rgb(186, 195, 219);
+  font-size: 1.8rem;
 }
 
-.leaderboard-wrapper .rank3 {
-  color: rgb(195, 117, 57);
-  font-size: 2.1rem;
-}
-
-.leaderboard-wrapper table td .star {
-  color: var(--yellow);
-  font-size: 1.6rem;
-  margin-bottom: -0.3rem;
+.leaderboard-wrapper table .rank3 {
+  color: rgb(213, 150, 98);
+  font-size: 1.8rem;
 }
 
 .pagination-buttons {
   display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
   justify-content: center;
   align-items: center;
-}
-
-.pagination-buttons p {
-  font-size: 1.4rem;
-  color: rgb(101, 101, 101);
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .pagination-buttons svg {
-  border: none;
-  padding: 0.75rem 1.5rem;
   font-size: 1.8rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  color: rgb(101, 101, 101);
+  transition: all 0.15s ease;
   cursor: pointer;
 }
 
 .pagination-buttons svg:hover {
   background-color: var(--grey);
+}
+
+.pagination-buttons p {
+  font-size: 1.6rem;
 }
 
 @keyframes leaderBoardAnimation {

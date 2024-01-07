@@ -10,26 +10,50 @@ import { leaderboardAPI } from "../../APIs/LeaderBoardAPI";
 function LeaderBoard() {
   const nav = useNavigate();
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [listLimit, setListLimit] = useState(10);
+  const [totalPages, setTotalPages] = useState(null);
+
   const [gameMode, setGameMode] = useState("easy");
   const [leaderBoardData, setLeaderBoardData] = useState([]);
 
   const getLeaderBoard = async () => {
     try {
-      const leaderboard = await axios.get(`${leaderboardAPI}?mode=${gameMode}`);
-      setLeaderBoardData(leaderboard.data);
+      const leaderboard = await axios.get(
+        `${leaderboardAPI}?mode=${gameMode}&listLimit=${listLimit}&currentPage=${currentPage}`
+      );
+      setLeaderBoardData(leaderboard.data.leaderBoard);
+      setTotalPages(leaderboard.data.totalPages);
       console.log(leaderboard.data);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleSelectGameMode = (event) => {
-    setGameMode(event.target.value);
+  const handleChangePage = (boolean) => {
+    if (boolean) {
+      if (currentPage === totalPages) {
+        console.log("nasa last kana");
+      } else {
+        setCurrentPage(currentPage + 1);
+      }
+    } else {
+      if (currentPage === 1) {
+        console.log("nasa unang page kana");
+      } else {
+        setCurrentPage(currentPage - 1);
+      }
+    }
   };
 
   useEffect(() => {
     getLeaderBoard();
-  }, [gameMode]);
+  }, [gameMode, currentPage]);
+
+  const handleSelectGameMode = (event) => {
+    setGameMode(event.target.value);
+    setCurrentPage(1);
+  };
 
   return (
     <div className="leaderboard-container">
@@ -38,8 +62,9 @@ function LeaderBoard() {
           <IoIosArrowBack onClick={() => nav("/")} />
           <h1>Leaderboard</h1>
         </div>
-        <div className="mode">
-          <label htmlFor="gameMode">Mode</label>
+
+        <div className="gameMode">
+          <label htmlFor="gameMode">Mode :</label>
           <select
             name="gameMode"
             value={gameMode}
@@ -52,31 +77,33 @@ function LeaderBoard() {
             <option value="timed">Timed</option>
           </select>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Username</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {leaderBoardData &&
-              leaderBoardData.map((data, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{data.username}</td>
-                  <td>
-                    {data.score} <TiStarFullOutline className="star" />
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <td>Rank</td>
+                <td>Username</td>
+                <td>Score</td>
+              </tr>
+            </thead>
+            <tbody>
+              {leaderBoardData &&
+                leaderBoardData.map((data, index) => (
+                  <tr key={index}>
+                    <td className={`rank${index + 1}`}>
+                      {index + 1 < 4 ? <FaCrown /> : index + 1}
+                    </td>
+                    <td>{data.username}</td>
+                    <td>{data.score}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
         <div className="pagination-buttons">
-          <IoIosArrowBack />
-          <p>3</p>
-          <IoIosArrowForward />
+          <IoIosArrowBack onClick={() => handleChangePage(false)} />
+          <p>{currentPage}</p>
+          <IoIosArrowForward onClick={() => handleChangePage(true)} />
         </div>
       </div>
     </div>
