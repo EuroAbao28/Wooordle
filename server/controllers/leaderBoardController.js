@@ -6,7 +6,7 @@ const getLeaderBoard = async (req, res) => {
 
     if (!mode)
       return res.status(400).json({
-        message: "mode, listLimit, currentPage req.query is required",
+        message: "mode, listLimit, currentPage req.query is required.",
       });
 
     const leaderBoard = await leaderBoardModel
