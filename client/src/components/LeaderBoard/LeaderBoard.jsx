@@ -16,6 +16,7 @@ function LeaderBoard() {
 
   const [gameMode, setGameMode] = useState("easy");
   const [leaderBoardData, setLeaderBoardData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getLeaderBoard = async () => {
     try {
@@ -24,6 +25,7 @@ function LeaderBoard() {
       );
       setLeaderBoardData(leaderboard.data.leaderBoard);
       setTotalPages(leaderboard.data.totalPages);
+      setIsLoading(false);
       console.log(leaderboard.data);
     } catch (error) {
       console.error(error);
@@ -36,24 +38,27 @@ function LeaderBoard() {
         console.log("nasa last kana");
       } else {
         setCurrentPage(currentPage + 1);
+        setIsLoading(true);
       }
     } else {
       if (currentPage === 1) {
         console.log("nasa unang page kana");
       } else {
         setCurrentPage(currentPage - 1);
+        setIsLoading(true);
       }
     }
+  };
+
+  const handleSelectGameMode = (event) => {
+    setGameMode(event.target.value);
+    setCurrentPage(1);
+    setIsLoading(true);
   };
 
   useEffect(() => {
     getLeaderBoard();
   }, [gameMode, currentPage]);
-
-  const handleSelectGameMode = (event) => {
-    setGameMode(event.target.value);
-    setCurrentPage(1);
-  };
 
   return (
     <div className="leaderboard-container">
@@ -77,29 +82,34 @@ function LeaderBoard() {
             <option value="timed">Timed</option>
           </select>
         </div>
-        <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <td>Rank</td>
-                <td>Username</td>
-                <td>Score</td>
-              </tr>
-            </thead>
-            <tbody>
-              {leaderBoardData &&
-                leaderBoardData.map((data, index) => (
-                  <tr key={index}>
-                    <td className={`rank${index + 1}`}>
-                      {index + 1 < 4 ? <FaCrown /> : index + 1}
-                    </td>
-                    <td>{data.username}</td>
-                    <td>{data.score}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
+
+        {isLoading ? (
+          <div className="spinner"></div>
+        ) : (
+          <div className="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <td>Rank</td>
+                  <td>Username</td>
+                  <td>Score</td>
+                </tr>
+              </thead>
+              <tbody>
+                {leaderBoardData &&
+                  leaderBoardData.map((data, index) => (
+                    <tr key={index}>
+                      <td className={`rank${index + 1}`}>
+                        {index + 1 < 4 ? <FaCrown /> : index + 1}
+                      </td>
+                      <td>{data.username}</td>
+                      <td>{data.score}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        )}
         <div className="pagination-buttons">
           <IoIosArrowBack onClick={() => handleChangePage(false)} />
           <p>{currentPage}</p>

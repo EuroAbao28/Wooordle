@@ -142,3 +142,27 @@
     opacity: 1;
   }
 }
+
+/*----- LOADER -----*/
+
+.spinner {
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #000000);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(100% - 0.6rem),
+    #000 0
+  );
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}
