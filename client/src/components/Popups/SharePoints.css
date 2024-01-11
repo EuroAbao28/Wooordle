@@ -102,6 +102,7 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: all 0.5s ease;
 
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 0px 3px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -116,7 +117,12 @@
   color: rgb(101, 101, 101);
 }
 
-.share-buttons button:nth-child(2) {
+.share-buttons .disable {
+  background-color: var(--red);
+  color: white;
+}
+
+.share-buttons .able {
   background-color: var(--green);
   color: white;
 }

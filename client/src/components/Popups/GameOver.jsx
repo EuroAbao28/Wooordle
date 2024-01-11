@@ -5,7 +5,7 @@ import { RiHome2Line } from "react-icons/ri";
 import { VscDebugRestart } from "react-icons/vsc";
 import { TbShare } from "react-icons/tb";
 
-function GameOver({ state, restart, score, sharePoints }) {
+function GameOver({ state, restart, score, sharePoints, isShareButtonShow }) {
   const nav = useNavigate();
   return (
     <div className={`gameOver-container ${state ? "show" : "hide"}`}>
@@ -15,7 +15,7 @@ function GameOver({ state, restart, score, sharePoints }) {
       <div className="gameOver-buttons">
         <RiHome2Line onClick={() => nav("/")} />
         <VscDebugRestart onClick={restart} />
-        <TbShare onClick={sharePoints} />
+        {isShareButtonShow && score > 0 && <TbShare onClick={sharePoints} />}
       </div>
     </div>
   );

@@ -18,7 +18,9 @@ function ResultPopUp({ state, origWord, answer, nextLevel }) {
 
         {origWord === answer.join("") ? (
           <div className="message correct">
-            <p>You are correct!</p>
+            <p>
+              You are <strong>correct!</strong>
+            </p>
             <div className="plus-points">
               <p>+10</p>
               <TiStarFullOutline />
@@ -27,9 +29,9 @@ function ResultPopUp({ state, origWord, answer, nextLevel }) {
         ) : (
           <div className="message wrong">
             <p>
-              Your answer <span>{answer.join("")}</span> is wrong
+              Your answer <span>{answer.join("")}</span> is{" "}
+              <strong>wrong</strong>
             </p>
-            <CgCloseR />
           </div>
         )}
 

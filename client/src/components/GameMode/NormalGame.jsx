@@ -13,6 +13,7 @@ import SharePoints from "../Popups/SharePoints";
 
 function NormalGame({ api }) {
   const nav = useNavigate();
+  //tanga
 
   const [origWord, setOrigWord] = useState("");
   const [shuffledWord, setShuffledWord] = useState("");
@@ -30,6 +31,8 @@ function NormalGame({ api }) {
   const [resultDeployer, setResultDeployer] = useState(false);
   const [gameOverDeployer, setGameOverDeployer] = useState(false);
   const [sharePointsDeployer, setSharePointsDeployer] = useState(false);
+
+  const [isShareButtonShow, setIsShowButtonShow] = useState(true);
 
   const handleAddNewLetter = (letter, index) => {
     if (!selectedIndex.includes(index)) {
@@ -112,8 +115,8 @@ function NormalGame({ api }) {
     setShowGameOver(false);
     setLives(3);
     setPoints(0);
-
     generateWord();
+    setIsShowButtonShow(true);
   };
 
   const sharePoints = () => {
@@ -125,6 +128,10 @@ function NormalGame({ api }) {
   const handleBack = () => {
     setShowGameOver(true);
     setShowSharePoints(false);
+  };
+
+  const handleHideShareButton = () => {
+    setIsShowButtonShow(false);
   };
 
   useEffect(() => {
@@ -148,6 +155,7 @@ function NormalGame({ api }) {
           restart={handleRestart}
           score={points}
           sharePoints={sharePoints}
+          isShareButtonShow={isShareButtonShow}
         />
       )}
       {sharePointsDeployer && (
@@ -155,6 +163,7 @@ function NormalGame({ api }) {
           state={showSharePoints}
           back={handleBack}
           points={points}
+          hideShareButton={handleHideShareButton}
         />
       )}
       <div className="child-container">

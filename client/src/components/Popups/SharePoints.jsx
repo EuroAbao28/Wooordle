@@ -6,12 +6,15 @@ import { TbShare } from "react-icons/tb";
 import axios from "axios";
 import { shareAPI } from "../../APIs/LeaderBoardAPI";
 
-function SharePoints({ state, back, points }) {
+function SharePoints({ state, back, points, hideShareButton }) {
   const [username, setusername] = useState("");
   const [isLoading, setISLoading] = useState(false);
+  const [isButtonDisable, setIsButtonDisable] = useState(true);
 
   const handleShare = async () => {
     setISLoading(true);
+
+    if (!username) return console.log("no username");
 
     try {
       const response = await axios.post(shareAPI, {
@@ -22,6 +25,8 @@ function SharePoints({ state, back, points }) {
 
       console.log(response.data);
       setISLoading(false);
+      setusername("");
+      hideShareButton();
       back();
     } catch (error) {
       console.error(error);
@@ -31,6 +36,10 @@ function SharePoints({ state, back, points }) {
   const handleBack = () => {
     setISLoading(false);
     back();
+  };
+
+  const handleUsernameInput = (e) => {
+    setusername(e.target.value);
   };
 
   return (
@@ -47,14 +56,18 @@ function SharePoints({ state, back, points }) {
           type="text"
           placeholder="Username"
           value={username}
-          onChange={(e) => setusername(e.target.value)}
+          onChange={(e) => handleUsernameInput(e)}
+          maxLength={10}
         />
       </div>
       <div className="share-buttons">
         <button onClick={handleBack}>
           <IoArrowBack />
         </button>
-        <button onClick={handleShare}>
+        <button
+          className={username.length > 3 ? "able" : "disable"}
+          disabled={username.length > 3 ? false : true}
+          onClick={handleShare}>
           {isLoading ? <div className="share-spinner"></div> : <TbShare />}
         </button>
       </div>

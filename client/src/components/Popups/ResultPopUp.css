@@ -62,16 +62,16 @@
   font-weight: 600;
 }
 
-.message svg {
-  font-size: 1.8rem;
-}
-
-.wrong svg {
-  color: red;
-}
-
 .correct {
   gap: 1rem;
+}
+
+.correct strong {
+  color: var(--green);
+}
+
+.wrong strong {
+  color: var(--red);
 }
 
 .plus-points {
