@@ -24,9 +24,9 @@ html {
 }
 
 body {
-  background-image: radial-gradient(#000000 1px, transparent 1px);
+  background-image: radial-gradient(#4e4e4e 1px, transparent 1px);
   background-size: 32px 32px;
-  background-color: #e5e5f7;
+  background-color: white;
   user-select: none;
 }
 
