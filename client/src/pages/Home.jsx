@@ -23,9 +23,6 @@ function Home() {
             <button onClick={() => nav("easy")}>Easy</button>
             <button onClick={() => nav("medium")}>Medium</button>
             <button onClick={() => nav("hard")}>Hard</button>
-            <button onClick={() => nav("easy")}>Blind</button>
-            <button onClick={() => nav("medium")}>Randomize</button>
-            <button onClick={() => nav("hard")}>Demon</button>
           </div>
         </div>
         <div className="developer">
