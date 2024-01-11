@@ -17,8 +17,8 @@ function Home() {
             <GrSun />
           </div>
         </header>
-        <h3>Game Modes</h3>
         <div className="levels-outline">
+          <h3>Game Modes</h3>
           <div className="levels-container">
             <button onClick={() => nav("easy")}>Easy</button>
             <button onClick={() => nav("medium")}>Medium</button>

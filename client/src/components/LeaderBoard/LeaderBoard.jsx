@@ -26,7 +26,6 @@ function LeaderBoard() {
       setLeaderBoardData(leaderboard.data.leaderBoard);
       setTotalPages(leaderboard.data.totalPages);
       setIsLoading(false);
-      console.log(leaderboard.data);
     } catch (error) {
       console.error(error);
     }
@@ -99,8 +98,8 @@ function LeaderBoard() {
                 {leaderBoardData &&
                   leaderBoardData.map((data, index) => (
                     <tr key={index}>
-                      <td className={`rank${index + 1}`}>
-                        {index + 1 < 4 ? <FaCrown /> : index + 1}
+                      <td className={`rank${data.rank}`}>
+                        {data.rank < 4 ? <FaCrown /> : data.rank}
                       </td>
                       <td>{data.username}</td>
                       <td>{data.score}</td>

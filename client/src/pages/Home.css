@@ -20,9 +20,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgb(203, 203, 203);
 }
 
 .home-wrapper h1 {
@@ -48,22 +45,22 @@
 
 .home-wrapper h3 {
   text-align: center;
-  margin-top: 2rem;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .levels-outline {
   outline: 1px solid rgb(203, 203, 203);
   padding: 2rem;
   border-radius: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .levels-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 .levels-container button {
