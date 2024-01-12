@@ -76,9 +76,6 @@ function LeaderBoard() {
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
-            <option value="blind">Blind</option>
-            <option value="random">Random</option>
-            <option value="timed">Timed</option>
           </select>
         </div>
 
